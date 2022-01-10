@@ -15,21 +15,17 @@ public class AlarmController {
 	}
 
 	@GetMapping("/alarms")
-	public List<Alarm> lights() {
+	public List<Alarm> alarms() {
 		return alarmModel.findAll();
 	}
 
 	@GetMapping(value = "/alarms/{id}")
-	public Alarm lightsID(@PathVariable int id) {
+	public Alarm alarmsID(@PathVariable int id) {
 		return alarmModel.findById(id);
 	}
 
-	@PostMapping(value = "/alarms")
-	public void addLight(@RequestBody Alarm alarm){
-		alarmModel.add(alarm);
-	}
 	@PostMapping(value="/alarms/{id}")
-	public void setLight(@PathVariable int id, @RequestBody String requestBody) {
+	public void setAlarm(@PathVariable int id, @RequestBody String requestBody) {
 		JSONObject jsonBody = new JSONObject(requestBody);
 		try {
 			boolean enabled = jsonBody.getBoolean("enabled");

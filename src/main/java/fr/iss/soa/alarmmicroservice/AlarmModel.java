@@ -31,10 +31,6 @@ public class AlarmModel {
 		return null;
 	}
 
-	public void add(Alarm light) {
-		alarmList.add(light);
-	}
-
 	public void update(int id, boolean enabled) {
 		Alarm l = findById(id);
 		l.setEnabled(enabled);
